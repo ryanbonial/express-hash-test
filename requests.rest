@@ -18,3 +18,12 @@ Content-Type: application/json
     "name": "Joe",
     "password": "secret"
 }
+
+### Login failure
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "name": "Joe",
+    "password": "fail"
+}
