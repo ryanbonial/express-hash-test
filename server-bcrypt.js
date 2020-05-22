@@ -25,13 +25,13 @@ app.post('/login', async (req, res) => {
     const user = users.find(user => user.name === name);
     console.log(user)
     if (!user) {
-        return res.status(400).send('Invalid username or password');
+        return res.status(401).send('Invalid username or password');
     }
     try {
         if (await bcrypt.compare(password, user.passwordHash)){
             return res.status(200).send(user);
         } else {
-            return res.status(400).send('Invalid username or password');
+            return res.status(401).send('Invalid username or password');
         }
     } catch {
         res.status(500).send();
