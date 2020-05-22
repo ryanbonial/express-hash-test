@@ -23,7 +23,6 @@ app.post('/users', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { name, password } = req.body;
     const user = users.find(user => user.name === name);
-    console.log(user)
     if (!user) {
         return res.status(401).send('Invalid username or password');
     }
